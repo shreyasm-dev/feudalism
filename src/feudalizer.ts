@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { parse, Options } from 'acorn';
+import { generate } from 'escodegen';
 import { walk } from 'estree-walker';
 
 export const feudalize = (options: Options, dictionary: string[], code: string, variables: Record<string, string>, action: (name: string) => string) => {
@@ -18,5 +19,6 @@ export const feudalize = (options: Options, dictionary: string[], code: string, 
       }
     },
   });
-  return ast;
+
+  return generate(ast);
 };
