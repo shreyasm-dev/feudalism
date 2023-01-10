@@ -2,8 +2,11 @@
   "name": "feudalism",
   "version": "1.0.0",
   "description": "Turn your code into a fiefdom",
-  "main": "dist/main.js",
-  "types": "dist/main.d.ts",
+  "main": "dist/feudalizer.js",
+  "types": "dist/feudalizer.d.ts",
+  "bin": {
+    "feudalism": "dist/main.js"
+  },
   "scripts": {
     "build": "tsc",
     "postbuild": "copyfiles -u 1 src/**/*.txt dist",

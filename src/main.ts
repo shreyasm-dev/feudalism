@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import sourceMapSupport from 'source-map-support';
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { resolve } from 'path';
