@@ -6,6 +6,7 @@
   "types": "dist/main.d.ts",
   "scripts": {
     "build": "tsc",
+    "postbuild": "copyfiles -u 1 src/**/*.txt dist",
     "run": "node dist/main.js",
     "build:watch": "tsc --watch",
     "run:watch": "nodemon dist/main.js --watch dist",
@@ -24,6 +25,7 @@
     "@typescript-eslint/eslint-plugin": "^5.48.0",
     "@typescript-eslint/parser": "^5.48.0",
     "chai": "^4.3.7",
+    "copyfiles": "^2.4.1",
     "eslint": "^8.31.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
