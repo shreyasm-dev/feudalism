@@ -1,5 +1,5 @@
 import sourceMapSupport from 'source-map-support';
-import { readFileSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { resolve } from 'path';
 import { program } from 'commander';
 import words, { unfiltered } from './dictionary';
@@ -28,10 +28,11 @@ program
   .alias('r')
   .argument('<file>', 'The script to feudalize')
   .option('-m, -module', 'Use ES modules')
+  .option('-o, --output <file>', 'Output to a file')
   .description('Run a file through the feudalizer')
-  .action((file, module) => {
+  .action((file, module, output) => {
     const source = readFileSync(resolve(process.cwd(), file), 'utf8');
-    console.log(JSON.stringify(feudalize(
+    const feudalized = feudalize(
       {
         ecmaVersion: 'latest',
         sourceType: module ? 'module' : 'script',
@@ -40,7 +41,18 @@ program
       source,
       {},
       () => words[Math.floor(Math.random() * words.length)],
-    ), null, 2));
+    );
+
+    if (output) {
+      if (existsSync(resolve(process.cwd(), output))) {
+        console.error(`File ${output} already exists`);
+        process.exit(1);
+      }
+
+      writeFileSync(resolve(process.cwd(), output), feudalized);
+    } else {
+      console.log(feudalized);
+    }
   });
 
 program.parse(process.argv);
