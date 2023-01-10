@@ -28,9 +28,10 @@ program
   .alias('r')
   .argument('<file>', 'The script to feudalize')
   .option('-m, -module', 'Use ES modules')
+  .option('-a, --ast', 'Output the AST')
   .option('-o, --output <file>', 'Output to a file')
   .description('Run a file through the feudalizer')
-  .action((file, module, output) => {
+  .action((file, { module, ast, output }) => {
     const source = readFileSync(resolve(process.cwd(), file), 'utf8');
     const feudalized = feudalize(
       {
@@ -41,6 +42,7 @@ program
       source,
       {},
       () => words[Math.floor(Math.random() * words.length)],
+      ast,
     );
 
     if (output) {
