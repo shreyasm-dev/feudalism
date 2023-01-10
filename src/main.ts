@@ -43,7 +43,10 @@ program
       words,
       source,
       {},
-      (name) => [...Array(name.length + Math.floor(Math.random() * 10))].map((_, i) => words[Math.floor(Math.random() * words.length)][i === 0 ? 'toLowerCase' : 'toUpperCase']()).join(''),
+      (name) => [...Array(name.length + Math.floor(Math.random() * 10))].map((_, i) => {
+        const word = words[Math.floor(Math.random() * words.length)];
+        return i !== 0 ? `${word[0].toUpperCase()}${word.slice(1)}` : word;
+      }).join(''),
       ast,
     );
 
