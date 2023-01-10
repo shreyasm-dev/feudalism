@@ -5,11 +5,10 @@ import { resolve } from 'path';
 const words = readFileSync(resolve(__dirname, './dictionary.txt'), 'utf8')
   .trim()
   .split('\n')
-  .map((word) => word.split(', ')[0].replace(/æ/g, 'ae').replace(/œ/g, 'oe'));
+  .map((word) => word.split(', ')[0]);
 
 export default words;
 
 export const unfiltered = readFileSync(resolve(__dirname, './dictionary.txt'), 'utf8')
   .trim()
-  .split('\n')
-  .map((word) => word.replace(/æ/g, 'ae').replace(/œ/g, 'oe'));
+  .split('\n');
