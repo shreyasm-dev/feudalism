@@ -1,6 +1,6 @@
 {
   "name": "feudalism",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Turn your code into a fiefdom",
   "main": "dist/feudalizer.js",
   "types": "dist/feudalizer.d.ts",
@@ -17,7 +17,11 @@
     "start:once": "npm run build && npm run run",
     "prepublishOnly": "npm run build"
   },
-  "keywords": [],
+  "keywords": [
+    "feudalism",
+    "code",
+    "code generation"    
+  ],
   "author": "shreyasm-dev",
   "license": "MIT",
   "devDependencies": {
