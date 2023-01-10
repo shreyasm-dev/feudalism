@@ -1,6 +1,6 @@
 {
   "name": "feudalism",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Turn your code into a fiefdom",
   "main": "dist/feudalizer.js",
   "types": "dist/feudalizer.d.ts",

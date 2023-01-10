@@ -30,7 +30,16 @@ You can also use it programatically like this:
 ```
 import { feudalize } from 'feudalism';
 
-console.log(feudalize('const x = 5;'));
+console.log(feudalize(
+  {
+    ecmaVersion: 'latest',
+    sourceType: 'script',
+  },
+  'const x = 5;',
+  {},
+  (name) => name + 'xyz',
+  false,
+));
 ```
 
 ## License

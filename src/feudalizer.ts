@@ -3,7 +3,7 @@ import { parse, Options } from 'acorn';
 import { generate } from 'escodegen';
 import { walk } from 'estree-walker';
 
-export const feudalize = (options: Options, dictionary: string[], code: string, variables: Record<string, string>, action: (name: string) => string, outputAst: boolean) => {
+export const feudalize = (options: Options, code: string, variables: Record<string, string>, action: (name: string) => string, outputAst: boolean) => {
   const ast = parse(code, options);
   walk(ast, {
     enter: (node) => {

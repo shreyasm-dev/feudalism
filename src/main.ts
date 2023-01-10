@@ -40,7 +40,6 @@ program
         ecmaVersion: 'latest',
         sourceType: module ? 'module' : 'script',
       },
-      words,
       source,
       {},
       (name) => [...Array(name.length + Math.floor(Math.random() * 10))].map((_, i) => {
