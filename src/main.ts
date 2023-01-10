@@ -43,7 +43,7 @@ program
       words,
       source,
       {},
-      () => words[Math.floor(Math.random() * words.length)],
+      (name) => [...Array(name.length + Math.floor(Math.random() * 10))].map((_, i) => words[Math.floor(Math.random() * words.length)][i === 0 ? 'toLowerCase' : 'toUpperCase']()).join(''),
       ast,
     );
 
